@@ -36,13 +36,21 @@ namespace ChatClient
 
         void ConnectUser()
         {
+
             if (!isConnected)
             {
-                client = new ServiceChatClient(new System.ServiceModel.InstanceContext(this));
-                ID = client.Connect(tbUserName.Text);
-                tbUserName.IsEnabled = false;
-                bConnDicon.Content = "Disconnect";
-                isConnected = true;
+                try
+                {
+                    client = new ServiceChatClient(new System.ServiceModel.InstanceContext(this));
+                    ID = client.Connect(tbUserName.Text);
+                    tbUserName.IsEnabled = false;
+                    bConnDicon.Content = "Disconnect";
+                    isConnected = true;
+                }
+                catch (Exception ex)
+                {
+                   MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -93,6 +101,17 @@ namespace ChatClient
                     tbMessage.Text = string.Empty;
                 }               
             }
+        }
+
+        private void CloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        bool isMoved = false;
+        Point startMovePosition;
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }
