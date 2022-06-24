@@ -49,7 +49,7 @@ namespace wcf_chat
                 var user = users.FirstOrDefault(i => i.ID == id);
                 if (user != null)
                 {
-                    answer += ": " + user.Name+" ";
+                    answer += ": " + user.Name+"\n ";
                 }
                 answer += msg;
                 item.operationContext.GetCallbackChannel<IServerChatCallback>().MsgCallback(answer);

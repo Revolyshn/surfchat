@@ -15,6 +15,8 @@ namespace ChatHost
             {
                 host.Open();
                 Console.WriteLine("Хост стартовал!");
+                Console.WriteLine("Нажмите люблую кнопку, чтобы выключить сервер...");
+
                 Console.ReadLine();
             }
         }

@@ -49,7 +49,7 @@ namespace ChatClient
                 }
                 catch (Exception ex)
                 {
-                   MessageBox.Show(ex.Message);
+                   MessageBox.Show("Ошибка подключения!");
                 }
             }
         }
@@ -107,8 +107,6 @@ namespace ChatClient
         {
             Close();
         }
-        bool isMoved = false;
-        Point startMovePosition;
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
